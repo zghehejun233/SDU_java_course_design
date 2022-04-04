@@ -11,4 +11,5 @@ public class Course {
     private String name;
     private String teacher;
     private String classroom;
+    private Integer week;
 }
