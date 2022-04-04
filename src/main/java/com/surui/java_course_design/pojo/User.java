@@ -1,4 +1,4 @@
-package com.surui.java_course_design.pojo.users;
+package com.surui.java_course_design.pojo;
 
 import lombok.Data;
 
@@ -15,5 +15,4 @@ public class User {
     private String password;
     private Integer age;
     private Integer sex;
-    private List<UserRole> roles;
 }
