@@ -32,7 +32,7 @@ public interface UserMapper {
      * @param age      sd
      * @param sex      sd
      */
-    @Insert("INSERT INTO user(name, account,password,age,sex) VALUES(#{name},#{account},#{password}, #{age}),#{sex}")
+    @Insert("INSERT INTO user(name, account,password,age,sex) VALUES(#{name},#{account},#{password}, #{age},#{sex})")
     void insert(@Param("name") String name, @Param("account") String account, @Param("password") String password,
                    @Param("age") Integer age, @Param("sex") Integer sex);
 }

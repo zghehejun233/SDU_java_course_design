@@ -18,7 +18,7 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @PostMapping
+    @PostMapping(value = "/")
     public String postUser(@RequestBody User user) {
         userService.postUser(user);
         return "OK";
