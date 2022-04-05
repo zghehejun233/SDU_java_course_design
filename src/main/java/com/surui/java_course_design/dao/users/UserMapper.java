@@ -1,6 +1,6 @@
 package com.surui.java_course_design.dao.users;
 
-import com.surui.java_course_design.pojo.User;
+import com.surui.java_course_design.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

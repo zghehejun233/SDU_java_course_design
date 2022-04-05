@@ -1,4 +1,4 @@
-package com.surui.java_course_design.pojo.courses;
+package com.surui.java_course_design.entity.courses;
 
 import lombok.Data;
 

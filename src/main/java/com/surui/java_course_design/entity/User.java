@@ -1,8 +1,6 @@
-package com.surui.java_course_design.pojo;
+package com.surui.java_course_design.entity;
 
 import lombok.Data;
-
-import java.util.List;
 
 /**
  * @author GuoSurui
