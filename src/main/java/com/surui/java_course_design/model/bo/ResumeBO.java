@@ -1,4 +1,4 @@
-package com.surui.java_course_design.bo;
+package com.surui.java_course_design.model.bo;
 
 /**
  * @author GuoSurui

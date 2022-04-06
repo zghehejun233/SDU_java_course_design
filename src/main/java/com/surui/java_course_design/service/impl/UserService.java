@@ -1,7 +1,7 @@
-package com.surui.java_course_design.service.users;
+package com.surui.java_course_design.service.impl;
 
-import com.surui.java_course_design.dao.users.UserMapper;
-import com.surui.java_course_design.entity.User;
+import com.surui.java_course_design.model.dao.UserMapper;
+import com.surui.java_course_design.model.entity.User;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public void postUser(@NotNull User user){
+    public void insertUser(@NotNull User user){
         userMapper.insert(user.getName(),user.getAccount(),user.getPassword(),user.getAge(),user.getSex());
     }
 
