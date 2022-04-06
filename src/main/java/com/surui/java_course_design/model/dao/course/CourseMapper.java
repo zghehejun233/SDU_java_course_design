@@ -1,16 +1,14 @@
 package com.surui.java_course_design.model.dao.course;
 
 import com.surui.java_course_design.model.entity.course.Course;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 /**
  * @author GuoSurui
  */
+@Mapper
 public interface CourseMapper {
     /**
      * 根据课程号查找课程
@@ -39,7 +37,8 @@ public interface CourseMapper {
      * @param classroom 教室
      */
     @Insert("INSERT INTO course(name, course_num,teacher,classroom) VALUES(#{name}, #{courseNum},#{teacher},#{classroom})")
-    void insert(@Param("name") String name, @Param("courseNum") String courseNum, @Param("teacher") String teacher, @Param("classroom") String classroom);
+    void insert(@Param("name") String name, @Param("courseNum") String courseNum, @Param("teacher") String teacher,
+                @Param("classroom") String classroom);
 
 
     /**

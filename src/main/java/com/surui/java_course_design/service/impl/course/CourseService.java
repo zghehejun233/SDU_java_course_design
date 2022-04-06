@@ -3,12 +3,14 @@ package com.surui.java_course_design.service.impl.course;
 import com.surui.java_course_design.model.dao.course.CourseMapper;
 import com.surui.java_course_design.model.entity.course.Course;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 /**
  * @author GuoSurui
  */
+@Service
 public class CourseService {
     @Resource
     private CourseMapper courseMapper;

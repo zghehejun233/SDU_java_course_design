@@ -22,6 +22,6 @@ public class CourseController {
     @PostMapping(value = "/courses")
     public JsonResponse<String> postCourse(@RequestBody Course course){
         courseServiceDefinition.addCourse(course);
-        return new JsonResponse("OK");
+        return new JsonResponse<>("OK");
     }
 }
