@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 /**
  * @author GuoSurui
  */
-@Slf4j
 @RestController
 @RequestMapping(value = "/api/users")
 public class UserController {
@@ -20,9 +19,7 @@ public class UserController {
 
     @PostMapping(value = "/")
     public JsonResponse<String> postUser(@RequestBody User user) {
-        log.debug("postUser starts.");
         userService.addUser(user);
-        log.debug("postUser finishes.");
         return new JsonResponse<>();
     }
 

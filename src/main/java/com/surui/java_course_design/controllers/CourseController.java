@@ -29,7 +29,6 @@ public class CourseController {
         return new JsonResponse<>("OK");
     }
 
-
     @PostMapping(value = "/course-locations")
     public JsonResponse<String> postCourseLocation(@RequestBody CourseLocation courseLocation) {
         courseService.addCourseLocation(courseLocation);
@@ -47,7 +46,6 @@ public class CourseController {
         courseService.addReference(reference);
         return new JsonResponse<>("OK");
     }
-
 
     @PostMapping(value = "/course-references")
     public JsonResponse<String> postCourseReference(@Param("course_num") String courseNum, @Param("reference_name") String referenceName) {
