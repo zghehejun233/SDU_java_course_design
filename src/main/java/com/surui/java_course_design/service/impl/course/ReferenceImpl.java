@@ -15,6 +15,10 @@ public class ReferenceImpl {
     @Resource
     private ReferenceMapper referenceMapper;
 
+    public Reference findReferenceByName(@NotNull String referenceName) {
+        return referenceMapper.findReferenceByName(referenceName);
+    }
+
     public void insertReference(@NotNull Reference reference) {
         referenceMapper.insertReference(reference.getName(), reference.getAuthor(), reference.getDescription(),
                 reference.getType(), reference.getLanguage());

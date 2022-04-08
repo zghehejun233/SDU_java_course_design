@@ -18,4 +18,8 @@ public class CourseImpl {
     public void insertCourse(@NotNull Course course){
         courseMapper.insert(course.getName(), course.getCourseNum(), course.getTeacher(),course.getClassroom().toString());
     }
+
+    public Course  findByCourseNum(@NotNull String courseNum){
+        return courseMapper.findByCourseNum(courseNum);
+    }
 }

@@ -1,13 +1,11 @@
 package com.surui.java_course_design.service.intf;
 
+import com.surui.java_course_design.model.dto.course.CourseReferenceDTO;
 import com.surui.java_course_design.model.entity.course.Course;
 import com.surui.java_course_design.model.entity.course.CourseLocation;
 import com.surui.java_course_design.model.entity.course.CourseTime;
 import com.surui.java_course_design.model.entity.course.Reference;
-import com.surui.java_course_design.service.impl.course.CourseImpl;
-import com.surui.java_course_design.service.impl.course.CourseLocationImpl;
-import com.surui.java_course_design.service.impl.course.CourseTimeImpl;
-import com.surui.java_course_design.service.impl.course.ReferenceImpl;
+import com.surui.java_course_design.service.impl.course.*;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +21,10 @@ public class CourseService {
 
     public void addCourse(@NotNull Course course) {
         this.course.insertCourse(course);
+    }
+
+    public Course findCourseByNum(@NotNull String courseNum) {
+        return this.course.findByCourseNum(courseNum);
     }
 
     @Resource
@@ -42,7 +44,20 @@ public class CourseService {
     @Resource
     private ReferenceImpl reference;
 
+    public Reference findReferenceByName(@NotNull String referenceName) {
+        return this.reference.findReferenceByName(referenceName);
+    }
+
     public void addReference(@NotNull Reference reference) {
         this.reference.insertReference(reference);
+    }
+
+    @Resource
+    private CourseReferenceImpl courseReference;
+
+
+    public void addCourseReference(@NotNull Course course, @NotNull Reference reference) {
+        CourseReferenceDTO courseReferenceDTO = new CourseReferenceDTO(course, reference);
+        this.courseReference.insertCourseReference(courseReferenceDTO);
     }
 }

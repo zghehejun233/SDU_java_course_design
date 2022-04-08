@@ -6,6 +6,7 @@ import com.surui.java_course_design.model.entity.course.CourseTime;
 import com.surui.java_course_design.model.entity.course.Reference;
 import com.surui.java_course_design.service.intf.CourseService;
 import com.surui.java_course_design.utils.JsonResponse;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,13 @@ public class CourseController {
     @PostMapping(value = "/references")
     public JsonResponse<String> postReference(@RequestBody Reference reference) {
         courseService.addReference(reference);
+        return new JsonResponse<>("OK");
+    }
+
+
+    @PostMapping(value = "/course-references")
+    public JsonResponse<String> postCourseReference(@Param("course_num") String courseNum, @Param("reference_name") String referenceName) {
+        courseService.addCourseReference(courseService.findCourseByNum(courseNum), courseService.findReferenceByName(referenceName));
         return new JsonResponse<>("OK");
     }
 }
