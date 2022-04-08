@@ -10,7 +10,6 @@ import java.util.List;
  */
 @Data
 public class Course {
-    private Integer id;
     private String name;
     private String courseNum;
     private String teacher;
