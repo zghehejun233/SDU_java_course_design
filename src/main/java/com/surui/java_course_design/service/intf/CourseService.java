@@ -3,9 +3,11 @@ package com.surui.java_course_design.service.intf;
 import com.surui.java_course_design.model.entity.course.Course;
 import com.surui.java_course_design.model.entity.course.CourseLocation;
 import com.surui.java_course_design.model.entity.course.CourseTime;
+import com.surui.java_course_design.model.entity.course.Reference;
 import com.surui.java_course_design.service.impl.course.CourseImpl;
 import com.surui.java_course_design.service.impl.course.CourseLocationImpl;
 import com.surui.java_course_design.service.impl.course.CourseTimeImpl;
+import com.surui.java_course_design.service.impl.course.ReferenceImpl;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,7 @@ public class CourseService {
     private CourseImpl course;
 
     public void addCourse(@NotNull Course course) {
-        this.course.postCourse(course);
+        this.course.insertCourse(course);
     }
 
     @Resource
@@ -35,5 +37,12 @@ public class CourseService {
 
     public void addCourseTime(@NotNull CourseTime courseTime) {
         this.courseTime.insertCourseTime(courseTime);
+    }
+
+    @Resource
+    private ReferenceImpl reference;
+
+    public void addReference(@NotNull Reference reference) {
+        this.reference.insertReference(reference);
     }
 }

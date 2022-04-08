@@ -15,7 +15,7 @@ public class CourseImpl {
     @Resource
     private CourseMapper courseMapper;
 
-    public void postCourse(@NotNull Course course){
+    public void insertCourse(@NotNull Course course){
         courseMapper.insert(course.getName(), course.getCourseNum(), course.getTeacher(),course.getClassroom().toString());
     }
 }

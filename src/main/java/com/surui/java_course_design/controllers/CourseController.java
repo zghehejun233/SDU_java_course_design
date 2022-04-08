@@ -3,6 +3,7 @@ package com.surui.java_course_design.controllers;
 import com.surui.java_course_design.model.entity.course.Course;
 import com.surui.java_course_design.model.entity.course.CourseLocation;
 import com.surui.java_course_design.model.entity.course.CourseTime;
+import com.surui.java_course_design.model.entity.course.Reference;
 import com.surui.java_course_design.service.intf.CourseService;
 import com.surui.java_course_design.utils.JsonResponse;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,12 @@ public class CourseController {
     @PostMapping(value = "/course-times")
     public JsonResponse<String> postCourseTime(@RequestBody CourseTime courseTime) {
         courseService.addCourseTime(courseTime);
+        return new JsonResponse<>("OK");
+    }
+
+    @PostMapping(value = "/references")
+    public JsonResponse<String> postReference(@RequestBody Reference reference) {
+        courseService.addReference(reference);
         return new JsonResponse<>("OK");
     }
 }
