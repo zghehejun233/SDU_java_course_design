@@ -1,7 +1,8 @@
 package com.surui.java_course_design.controllers;
 
 import com.surui.java_course_design.model.entity.course.Course;
-import com.surui.java_course_design.service.intf.CourseServiceDefinition;
+import com.surui.java_course_design.model.entity.course.CourseLocation;
+import com.surui.java_course_design.service.intf.CourseService;
 import com.surui.java_course_design.utils.JsonResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,11 +18,16 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/api/courses")
 public class CourseController {
     @Resource
-    private CourseServiceDefinition courseServiceDefinition;
+    private CourseService courseService;
 
     @PostMapping(value = "/courses")
     public JsonResponse<String> postCourse(@RequestBody Course course){
-        courseServiceDefinition.addCourse(course);
+        courseService.addCourse(course);
+        return new JsonResponse<>("OK");
+    }
+
+    @PostMapping(value = "/course-locations")
+    public JsonResponse<String> postCourseLocation(@RequestBody CourseLocation courseLocation){
         return new JsonResponse<>("OK");
     }
 }

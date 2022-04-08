@@ -11,7 +11,7 @@ import javax.annotation.Resource;
  * @author GuoSurui
  */
 @Service
-public class UserService {
+public class UserImpl {
     @Resource
     private UserMapper userMapper;
 

@@ -15,6 +15,4 @@ public class Course {
     private String courseNum;
     private String teacher;
     private CourseLocation classroom;
-    private List<Reference> referenceMaterials = new ArrayList<>();
-    private List<CourseTime> times = new ArrayList<>();
 }
