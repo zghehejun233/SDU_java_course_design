@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author GuoSurui
@@ -23,8 +24,20 @@ public class CourseService {
         this.course.insertCourse(course);
     }
 
+    public List<Course> findAllCourses() {
+        return this.course.findAll();
+    }
+
     public Course findCourseByNum(@NotNull String courseNum) {
         return this.course.findByCourseNum(courseNum);
+    }
+
+    public List<Course> findCourseByName(@NotNull String courseName) {
+        return this.course.findByCourseName(courseName);
+    }
+
+    public void deleteCourse(@NotNull String courseNum) {
+        this.course.deleteByCourseNum(courseNum);
     }
 
     @Resource

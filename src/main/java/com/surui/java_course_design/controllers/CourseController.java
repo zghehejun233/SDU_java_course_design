@@ -6,13 +6,13 @@ import com.surui.java_course_design.model.entity.course.CourseTime;
 import com.surui.java_course_design.model.entity.course.Reference;
 import com.surui.java_course_design.service.intf.CourseService;
 import com.surui.java_course_design.utils.JsonResponse;
+import lombok.Getter;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author GuoSurui
@@ -26,6 +26,23 @@ public class CourseController {
     @PostMapping(value = "/courses")
     public JsonResponse<String> postCourse(@RequestBody Course course) {
         courseService.addCourse(course);
+        return new JsonResponse<>("OK");
+    }
+
+    @GetMapping(value = "/courses")
+    public JsonResponse<List<Course>> getAllCourse() {
+        List<Course> result = courseService.findAllCourses();
+        return new JsonResponse<>(result);
+    }
+
+    @GetMapping(value = "/courses/{courseNum}")
+    public JsonResponse<Course> getCourse(@PathVariable("courseNum") String courseNum) {
+        return new JsonResponse<>(courseService.findCourseByNum(courseNum));
+    }
+
+    @DeleteMapping(value = "/courses/{courseNum}")
+    public JsonResponse<String> deleteCourse(@PathVariable("courseNum") String courseNum) {
+        courseService.deleteCourse(courseNum);
         return new JsonResponse<>("OK");
     }
 

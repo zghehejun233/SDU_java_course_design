@@ -11,6 +11,14 @@ import java.util.List;
 @Mapper
 public interface CourseMapper {
     /**
+     * 查找所有
+     *
+     * @return 结果用数组表示
+     */
+    @Select(value = "SELECT * FROM course")
+    List<Course> findAll();
+
+    /**
      * 根据课程号查找课程
      *
      * @param courseNum 课程号
@@ -26,7 +34,7 @@ public interface CourseMapper {
      * @return 课程对象
      */
     @Select("SELECT * FROM course WHERE course.name = #{name}")
-    List<Course> findByName(@Param("name") String name);
+    List<Course> findByCourseName(@Param("name") String name);
 
     /**
      * 添加一条课程信息
@@ -47,5 +55,5 @@ public interface CourseMapper {
      * @param courseNum 课程号
      */
     @Delete("DELETE FROM course WHERE course_num =#{couseNum}")
-    void delete(String courseNum);
+    void deleteByCourseNum(String courseNum);
 }
