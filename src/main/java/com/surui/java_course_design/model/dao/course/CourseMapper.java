@@ -15,6 +15,7 @@ public interface CourseMapper {
      *
      * @return 结果用数组表示
      */
+    @Result(property = "courseNum", column = "course_num")
     @Select(value = "SELECT * FROM course")
     List<Course> findAll();
 
